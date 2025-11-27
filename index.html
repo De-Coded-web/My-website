@@ -1,13 +1,37 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DDLCONNECTION — Home</title><meta name="description" content="Bespoke fashion designer and clothing brand in Lagos."><link rel="stylesheet" href="styles.css"></head><body>
-<header class="site-header"><div class="wrap"><a href="index.html" class="brand"><img src="images/logo.png" alt="logo" class="logo"><span class="brand-title">DDLCONNECTION</span></a><button class="nav-toggle" aria-expanded="false">☰</button><nav class="main-nav" id="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="products.html">Products</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" class="cta">Contact</a></li></ul></nav></div></header>
-<main><section class="hero"><div class="wrap hero-grid"><div class="hero-text"><h1 id="site-title">DDLCONNECTION — Crafted Fashion</h1><p id="site-desc">Bespoke clothing and ready-to-wear collections designed and handcrafted with attention to detail.</p><p><a class="btn" href="services.html">Our Services</a> <a class="btn btn-outline" href="contact.html">Book Consultation</a></p></div><div class="hero-media"><img src="images/hero.jpg" alt="Hero image"></div></div></section>
-<section class="featured wrap" aria-labelledby="featured-heading"><h2 id="featured-heading">Featured Collections</h2><div class="cards" id="featured-collections"></div></section>
-<section class="about-compact wrap" id="about-compact"><div><h2>About DDLCONNECTION</h2><p>We design and create clothing that speaks to individuality and quality. From bespoke tailoring to small-batch ready-to-wear, our pieces are crafted with care in Lagos.</p><p><a href="about.html">Learn more →</a></p></div><div class="contact-compact"><h3>Ready to work with us?</h3><p>Email: <a id="email-link" href="mailto:omosegbeolusegun@gmail.com">omosegbeolusegun@gmail.com</a></p><p>Phone: <a id="phone-link" href="tel:+2348146522545">08146522545</a></p><p><a class="btn" href="contact.html">Contact</a></p></div></section></main>
-<footer class="site-footer"><div class="wrap footer-grid"><div><img src="images/logo.png" alt="logo" style="max-width:140px"><p>© <span id="year"></span> DDLCONNECTION</p></div><div><h4>Quick links</h4><ul class="footer-links"><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li></ul></div><div><h4>Contact</h4><p id="footer-contact">omosegbeolusegun@gmail.com<br>08146522545<br>5 Asalu Street, Jankara, Ijaiye, Lagos</p></div></div></footer>
-<script>
-const navToggle = document.querySelector('.nav-toggle'); const mainNav = document.getElementById('main-nav');
-navToggle.addEventListener('click', ()=>{ const expanded = navToggle.getAttribute('aria-expanded') === 'true'; navToggle.setAttribute('aria-expanded', !expanded); mainNav.classList.toggle('open');});
-fetch('data/site-data.json').then(r=>r.json()).then(data=>{ document.getElementById('site-title').textContent = data.site.title + ' — Crafted Fashion'; document.getElementById('site-desc').textContent = data.site.description; document.getElementById('email-link').href = 'mailto:'+data.site.email; document.getElementById('email-link').textContent = data.site.email; document.getElementById('phone-link').href = 'tel:'+data.site.phone_link; document.getElementById('phone-link').textContent = data.site.phone; document.getElementById('footer-contact').innerHTML = data.site.email+'<br>'+data.site.phone+'<br>'+data.site.address; const cards = document.getElementById('featured-collections'); data.products.forEach(p=>{ const div=document.createElement('article'); div.className='card'; div.innerHTML = `<img src="${p.image}" alt="${p.name}"><h3>${p.name}</h3><p>${p.description}</p><p class="price">${p.currency}${p.price}</p>`; cards.appendChild(div); }); });
-document.getElementById('year').textContent = new Date().getFullYear();
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDLCONNECTION Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>DDLCONNECTION</h1>
+    <p>Fashion Designer • Clothing • Styles for Everyone</p>
+  </header>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We design and create unique fashion pieces that fit every personality and occasion.</p>
+  </section>
+
+  <section class="gallery">
+    <h2>Our Collections</h2>
+    <div class="grid">
+      <div class="ph">Photo 1</div>
+      <div class="ph">Photo 2</div>
+      <div class="ph">Photo 3</div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: omosegbeolusegun@gmail.com</p>
+    <p>Phone: 08146522545</p>
+    <p>Address: 5 Asalu Street, Jankara, Ijaiye, Lagos</p>
+  </section>
+
+</body>
+</html>
